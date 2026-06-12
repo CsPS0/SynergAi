@@ -289,6 +289,7 @@ modal.classList.remove('flex');
 <script>
 // 1. INVERTED SCROLLING
 window.addEventListener('wheel', (e) => {
+if (e.target.closest('#tos-text') || e.target.closest('#cookie-banner')) return;
 e.preventDefault();
 window.scrollBy(0, -e.deltaY);
 }, { passive: false });
