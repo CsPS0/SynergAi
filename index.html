@@ -1,92 +1,83 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>NexGen AI Solutions | Empowering Synergy</title><script src="https://cdn.tailwindcss.com"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script><link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" /><script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script><style>body{margin:0;font-family:'Inter',system-ui,sans-serif;background-color:#f8fafc;overflow-x:hidden} * { cursor: none !important; } .glass{background:rgba(255,255,255,0.4);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3)}.brutal{border:4px solid #000;box-shadow:8px 8px 0px #000;background:#fff;border-radius:0}.neumorph{border-radius:50px;background:#f8fafc;box-shadow:20px 20px 60px #d3d5d6,-20px -20px 60px #ffffff}.gradient-text{background:linear-gradient(90deg,#3b82f6,#8b5cf6,#ec4899);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}.float{animation:float 3s ease-in-out infinite}@keyframes float{0%{transform:translateY(0px)}50%{transform:translateY(-20px)}100%{transform:translateY(0px)}}.pulse-fast{animation:pulse 0.5s cubic-bezier(0.4,0,0.6,1) infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}.tab-content{display:none}.tab-content.active{display:block;animation:fadeIn 0.5s ease-in}@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}</style></head><body class="text-slate-800 antialiased"><div id="literal-dark-mode" style="display:none;" class="fixed inset-0 z-[999999] bg-black text-white flex items-center justify-center font-mono text-sm">Dark Mode Enabled. No refunds.</div><div id="paywall" style="display:none;" class="fixed inset-0 z-[999998] bg-black/90 text-white flex-col items-center justify-center p-8 backdrop-blur-xl"><h2 class="text-5xl font-black text-red-500 mb-4 text-center">PAYWALL REACHED</h2><p class="text-xl mb-8 text-center max-w-lg">You've reached your free scrolling limit for today. Please wait 15 seconds to continue scrolling.</p><div class="text-9xl font-mono text-yellow-400 animate-pulse" id="paywall-timer">15</div></div><canvas id="bg-canvas" class="fixed inset-0 w-full h-full z-[-2] pointer-events-none opacity-50"></canvas><nav class="glass fixed w-full z-50 top-0 px-4 py-2 md:px-6 md:py-4 flex flex-wrap justify-center md:justify-between items-center transition-all duration-300 hover:py-6 gap-3 md:gap-0"><div class="flex items-center gap-4"><div class="brutal px-4 py-2 font-black text-xl rotate-[-2deg] hover:rotate-0 transition-transform cursor-pointer tracking-tighter" onclick="switchTab('overview')">SynergAI.</div><button onclick="document.getElementById('literal-dark-mode').style.display='flex'; document.body.style.overflow='hidden';" class="bg-black text-white px-3 py-1 rounded-full font-black hover:bg-white hover:text-black border-2 border-white transition-all text-xs">Dark Mode</button></div><div class="flex flex-wrap justify-center gap-4 md:space-x-8 text-xs md:text-sm font-medium w-full md:w-auto order-3 md:order-2"><button onclick="switchTab('overview')" class="hover:text-blue-600 transition-colors duration-500 inline-block focus:outline-none">Platform</button><button onclick="switchTab('data')" class="hover:text-blue-600 transition-colors duration-500 inline-block focus:outline-none">Data Models</button><button onclick="switchTab('pricing')" class="hover:text-blue-600 transition-colors duration-500 inline-block focus:outline-none">Pricing</button><button onclick="switchTab('careers')" class="hover:text-red-500 transition-colors duration-500 inline-block focus:outline-none">Careers</button><button onclick="switchTab('investors')" class="hover:text-red-500 transition-colors duration-500 inline-block focus:outline-none">Investors</button></div><div class="flex gap-4 order-2 md:order-3"><a href="docs.html" class="bg-yellow-400 text-black px-4 md:px-6 py-2 rounded-full font-black hover:scale-110 transition-all border-2 border-black brutal text-xs md:text-sm flex items-center justify-center">Read Docs</a><button onclick="customAlert('Thank you for subscribing to our synergized newsletter. Your data is now ours.')" class="bg-blue-600 text-white px-4 md:px-6 py-2 rounded-full hover:shadow-[0_0_20px_rgba(37,99,235,0.8)] transition-all duration-700 animate-bounce font-medium text-xs md:text-sm">Subscribe</button></div></nav><main class="pt-40 md:pt-32 pb-20 px-4 md:px-6 max-w-7xl mx-auto">
-
 <!-- OVERVIEW TAB -->
 <div id="overview" class="tab-content active"><section class="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 min-h-[70vh]"><div class="md:w-1/2 space-y-6 md:space-y-8 stagger-item"><div class="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-widest uppercase shadow-inner border border-blue-200">🚀 Next-Gen Platform v2.0</div><h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tighter">Empowering the <span class="gradient-text float inline-block">Future</span> of B2B Synergies</h1><p class="text-lg md:text-xl text-slate-500 leading-relaxed font-light">Leverage cutting-edge AI-driven machine learning neural networks on the blockchain to maximize your KPIs and streamline dynamic workflows.</p><div class="flex flex-wrap gap-4 pt-4"><button onclick="switchTab('pricing')" class="brutal bg-[#ec4899] text-white px-6 md:px-8 py-3 md:py-4 font-bold text-base md:text-lg hover:-translate-y-2 hover:shadow-[12px_12px_0px_#000] transition-all">View Pricing</button><a href="docs.html" class="glass px-6 md:px-8 py-3 md:py-4 font-semibold text-base md:text-lg text-slate-700 hover:bg-white/60 transition-all border-2 border-slate-200 rounded-xl hover:scale-105 inline-block">Read Documentation</a></div></div><div class="md:w-1/2 relative h-[300px] md:h-[500px] w-full flex items-center justify-center scale-[0.6] sm:scale-75 md:scale-100 origin-center mt-[-60px] sm:mt-[-40px] md:mt-0"><div class="absolute inset-0 bg-gradient-to-tr from-blue-400 to-purple-400 opacity-20 blur-3xl rounded-full animate-pulse"></div><div class="glass w-72 h-96 absolute z-20 rounded-2xl flex flex-col p-6 border-t border-l border-white/50 shadow-2xl float" style="animation-delay:-1s"><h3 class="font-bold text-xl mb-4 text-slate-800">Live Metrics</h3><div class="flex-1 w-full bg-black/5 rounded-lg overflow-hidden relative"><div class="absolute bottom-0 left-0 w-full bg-blue-500 transition-all duration-1000" id="metric-bar" style="height:30%"></div></div><div class="mt-4 text-xs text-slate-500 font-mono flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500 animate-ping"></span> Syncing with cloud...</div></div><div class="brutal bg-yellow-300 w-64 h-64 absolute right-0 md:right-10 bottom-0 md:bottom-10 z-10 rotate-12 hover:rotate-[360deg] transition-all duration-1000 flex items-center justify-center p-4"><p class="font-black text-2xl text-center leading-none uppercase tracking-tighter">10x<br/>Growth<br/>Potential</p></div><div class="neumorph w-32 h-32 absolute top-0 md:top-10 left-0 md:left-10 z-30 flex items-center justify-center text-3xl pulse-fast">📈</div></div></section><section class="py-10 md:py-20"><h2 class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 gradient-text tracking-tight">Comprehensive Feature Suite</h2><div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8"><div class="glass p-6 md:p-8 rounded-3xl hover:translate-y-[-20px] transition-transform duration-500 shadow-xl border border-white/40"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-6 text-xl">☁️</div><h4 class="font-bold text-xl mb-3 text-slate-800">Cloud Native</h4><p class="text-slate-600 text-sm leading-relaxed">Deployed on serverless edge networks for ultra-low latency data packet routing globally across decentralized nodes.</p></div><div class="brutal bg-[#a855f7] text-white p-6 md:p-8 hover:scale-[1.05] transition-transform duration-300"><div class="w-12 h-12 bg-black text-white flex items-center justify-center mb-6 text-xl font-black border-2 border-white">AI</div><h4 class="font-bold text-xl mb-3">Deep Learning</h4><p class="text-white/80 text-sm leading-relaxed">Our proprietary LLM models predict your customer needs before they even exist using quantum heuristic algorithms.</p></div><div class="neumorph p-6 md:p-8 flex flex-col items-center text-center hover:shadow-[10px_10px_30px_#d3d5d6,-10px_-10px_30px_#ffffff] transition-shadow duration-500 sm:col-span-2 md:col-span-1"><div class="w-16 h-16 rounded-full bg-slate-50 shadow-inner flex items-center justify-center mb-6 text-2xl animate-spin" style="animation-duration: 5s;">🔒</div><h4 class="font-bold text-xl mb-3 text-slate-800">Bank-grade Security</h4><p class="text-slate-600 text-sm leading-relaxed">Military-grade AES-256 encryption secures your assets on the distributed immutable ledger infrastructure.</p></div></div></section></div>
-
 <!-- DATA TAB -->
 <div id="data" class="tab-content"><h2 class="text-4xl font-bold mb-10 text-center tracking-tight">Neural Data Lake Architecture</h2><div class="neumorph p-10 mb-10 overflow-x-auto"><table class="w-full text-left border-collapse"><thead class="text-xs uppercase bg-slate-200 text-slate-600"><tr><th class="p-4 border-b-2 border-slate-300">Hash ID</th><th class="p-4 border-b-2 border-slate-300">Synergy Matrix</th><th class="p-4 border-b-2 border-slate-300">Throughput</th><th class="p-4 border-b-2 border-slate-300">Status</th><th class="p-4 border-b-2 border-slate-300">Action</th></tr></thead><tbody class="text-sm"><tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b font-mono text-slate-500">0x8F9A...3B2C</td><td class="p-4 border-b font-semibold">Customer Churn Predictor Alpha</td><td class="p-4 border-b"><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-600 h-2.5 rounded-full w-[85%] animate-pulse"></div></div></td><td class="p-4 border-b"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">Optimized</span></td><td class="p-4 border-b"><button class="text-blue-500 hover:underline font-bold" onclick="customAlert('Processing tensor data... Success!')">Execute</button></td></tr><tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b font-mono text-slate-500">0x1B2C...4D5E</td><td class="p-4 border-b font-semibold">Web3 Conversion Funnel</td><td class="p-4 border-b"><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-purple-600 h-2.5 rounded-full w-[60%] animate-pulse"></div></div></td><td class="p-4 border-b"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs font-bold">Syncing</span></td><td class="p-4 border-b"><button class="text-blue-500 hover:underline font-bold" onclick="customAlert('Re-aligning decentralized nodes...')">Execute</button></td></tr><tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b font-mono text-slate-500">0x9E8D...7C6B</td><td class="p-4 border-b font-semibold">Quantum ROI Maximizer</td><td class="p-4 border-b"><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-pink-600 h-2.5 rounded-full w-[99%] animate-pulse"></div></div></td><td class="p-4 border-b"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs font-bold">Synergized</span></td><td class="p-4 border-b"><button class="text-blue-500 hover:underline font-bold" onclick="customAlert('Deploying smart contract. Gas fee: 0.05 ETH')">Execute</button></td></tr><tr class="hover:bg-blue-50 transition-colors"><td class="p-4 border-b font-mono text-slate-500">0x5A4B...3C2D</td><td class="p-4 border-b font-semibold">Legacy Monolith Over-engineer</td><td class="p-4 border-b"><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-red-600 h-2.5 rounded-full w-[15%] animate-pulse"></div></div></td><td class="p-4 border-b"><span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold">Failing</span></td><td class="p-4 border-b"><button class="text-red-500 hover:underline font-bold" onclick="window.location.href='404.html'">Debug</button></td></tr></tbody></table></div>
 <section class="py-10 bg-slate-900 text-white rounded-[50px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden relative brutal max-w-3xl mx-auto mt-20 border-8 border-red-600"><div class="relative z-10 p-12 flex flex-col items-center"><h2 class="text-4xl font-bold mb-6 text-center tracking-tight text-red-500 animate-pulse">🛑 FATAL ERROR 🛑<br/><span class="text-xl text-white">Backend Status Terminal</span></h2><div class="bg-black border-4 border-red-700 rounded-xl p-6 font-mono text-green-400 text-sm h-48 overflow-y-auto shadow-inner w-full text-left relative"><div class="absolute top-2 right-2 text-2xl">⚠️</div><div id="term-out"></div><span class="animate-pulse">_</span></div></div></section></div><script>const tLines=["[INFO] Matrix initialized.","[INFO] Fetching datalake blobs...","[PROCESS] Optimizing tensor arrays... 33%","[PROCESS] Optimizing tensor arrays... 66%","[PROCESS] Optimizing tensor arrays... 99%","<span class='text-red-500 font-bold'>[ERROR] FATAL EXCEPTION IN SYNERGY MODULE</span>","<span class='text-red-500 font-bold'>[CRITICAL] Exception: SQL syntax error near 'John Doe'. User executed a malformed SQL injection resulting in a non-NULL constraint violation.</span>","<span class='text-yellow-400'>[WARN] Overriding safety protocols... System continuing in degraded state.</span>"];let tIdx=0;function typeTerm(){if(tIdx<tLines.length){document.getElementById('term-out').innerHTML+=`[${new Date().toISOString()}] `+tLines[tIdx]+"<br/>";tIdx++;setTimeout(typeTerm,Math.random()*400+100)}}setTimeout(typeTerm,1000);</script>
-
 <!-- PRICING TAB -->
 <div id="pricing" class="tab-content"><div class="text-center mb-10 md:mb-16"><h2 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter">Transparent Pricing</h2><p class="text-lg md:text-xl text-slate-500">Scale your synergism infinitely. No hidden fees, just pure ROI.</p></div><div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto px-4 sm:px-10 md:px-0"><div class="glass p-8 text-center rounded-2xl border-t border-l border-white/50"><h3 class="text-2xl font-bold mb-2">Startup</h3><div class="text-5xl font-black mb-6">$99<span class="text-lg text-slate-500 font-normal">/mo</span></div><ul class="text-slate-600 space-y-4 mb-8 text-left font-medium"><li>✔️ 10k AI Predictions</li><li>✔️ Basic Synergy</li><li>❌ No Quantum compute</li></ul><button class="w-full py-3 rounded-xl border-2 border-blue-600 text-blue-600 font-bold hover:bg-blue-600 hover:text-white transition-colors" onclick="customAlert('Cart microservice is currently restarting. Please try again in 5 minutes.')">Select Plan</button></div><div class="brutal bg-blue-600 text-white p-8 text-center transform md:scale-110 z-10 my-4 md:my-0"><div class="bg-yellow-300 text-black text-xs font-black uppercase py-1 px-3 inline-block mb-4 brutal translate-y-[-20px] md:translate-y-[-20px]">Most Popular</div><h3 class="text-2xl font-bold mb-2">Enterprise</h3><div class="text-5xl font-black mb-6">$499<span class="text-lg text-white/70 font-normal">/mo</span></div><ul class="text-white/90 space-y-4 mb-8 text-left font-medium"><li>✔️ Unlimited Predictions</li><li>✔️ Hyper-Synergy</li><li>✔️ Dedicated Node</li></ul><button class="w-full py-3 rounded-xl bg-yellow-300 text-black font-black hover:bg-white transition-colors brutal" onclick="window.location.href='404.html'">Select Plan</button></div><div class="neumorph p-8 text-center"><h3 class="text-2xl font-bold mb-2">Custom</h3><div class="text-5xl font-black mb-6">???</div><ul class="text-slate-600 space-y-4 mb-8 text-left font-medium"><li>✔️ Everything in Enterprise</li><li>✔️ On-premise Blockchain</li><li>✔️ Direct access to LLM weights</li></ul><button class="w-full py-3 rounded-xl bg-slate-800 text-white font-bold hover:bg-slate-700 transition-colors shadow-inner" onclick="customAlert('Our sales team is currently synergizing in a retreat. Leave a message.')">Contact Sales</button></div></div></div>
-
 <!-- CAREERS TAB -->
 <div id="careers" class="tab-content"><h2 class="text-4xl md:text-5xl font-black mb-10 text-center tracking-tighter">Join the <span class="gradient-text">Synergy</span></h2><div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4"><div class="brutal bg-yellow-300 p-8 border-4 border-black hover:rotate-3 transition-transform"><h3 class="text-2xl font-black mb-2 uppercase">Prompt Engineer (Unpaid)</h3><p class="mb-4 text-sm font-medium">Must have 10+ years of experience with ChatGPT (founded in 2022). Compensation is pure exposure and a sense of pride.</p><button class="bg-black text-white px-4 py-2 font-black w-full hover:bg-white hover:text-black border-2 border-black transition-colors" onclick="customAlert('Our AI rejected your resume.')">Apply Now</button></div><div class="glass p-8 border border-white/50 rounded-xl hover:-rotate-3 transition-transform"><h3 class="text-2xl font-black mb-2 text-slate-800 uppercase">Chief Vibe Officer</h3><p class="mb-4 text-sm font-medium text-slate-600">Your only job is to ensure the codebase remains strictly "vibe-coded". No unit tests allowed.</p><button class="bg-blue-600 text-white px-4 py-2 font-bold w-full rounded-lg hover:bg-blue-700 transition-colors" onclick="customAlert('We felt a bad vibe. Application denied.')">Apply Now</button></div><div class="neumorph p-8 rounded-[40px] md:col-span-2 text-center mt-4"><h3 class="text-3xl font-black mb-2 text-slate-800 uppercase tracking-widest">Web3 Metaverse Architect</h3><p class="mb-6 text-sm font-medium text-slate-600 max-w-lg mx-auto">We don't actually know what this role does, but our VC investors said we need one. You'll be paid exclusively in our proprietary shitcoin.</p><button class="brutal bg-[#ec4899] text-white px-8 py-4 font-black w-auto inline-block text-xl hover:bg-black transition-colors" onclick="window.location.href='404.html'">MINT APPLICATION NFT</button></div></div></div>
-
-<!-- INVESTORS TAB -->
+<!-- INVESTORS TAB --> <!-- spaghetti logic -->
 <div id="investors" class="tab-content"><h2 class="text-4xl md:text-5xl font-black mb-6 text-center tracking-tighter">Series Z Funding</h2><p class="text-center text-xl text-slate-500 mb-12 max-w-2xl mx-auto">"Burn rate is not a bug. It's a feature." - Our CEO (Probably)</p><div class="max-w-3xl mx-auto px-4"><div class="glass p-10 rounded-3xl border-t border-l border-white/50 text-center relative overflow-hidden"><div class="absolute inset-0 bg-gradient-to-br from-green-400 to-blue-500 opacity-20 z-0 animate-pulse"></div><div class="relative z-10"><h3 class="text-3xl font-bold mb-8">Quarterly Growth Metrics</h3><div class="flex items-end justify-center gap-4 h-48 mb-8 border-b-4 border-l-4 border-slate-800 p-4"><div class="w-16 bg-red-400 h-[80%] rounded-t-sm hover:h-[90%] transition-all" title="Q1"></div><div class="w-16 bg-red-500 h-[60%] rounded-t-sm hover:h-[70%] transition-all" title="Q2"></div><div class="w-16 bg-red-600 h-[40%] rounded-t-sm hover:h-[50%] transition-all" title="Q3"></div><div class="w-16 brutal bg-green-500 h-[20%] rounded-t-sm flex items-center justify-center font-black text-xs hover:h-[30%] transition-all whitespace-nowrap" title="Q4">📈 UP!</div></div><p class="font-medium text-slate-700 italic">As you can see by this highly accurate graph, our KPIs are synergizing negatively in the positive direction.</p><button class="mt-8 brutal bg-black text-white px-8 py-3 font-black text-lg hover:bg-yellow-300 hover:text-black transition-colors" onclick="customAlert('Funding round closed. We took the money and ran.')">INVEST NOW</button></div></div></div><div class="mt-20 max-w-6xl mx-auto mb-10"><h3 class="text-4xl font-black text-center mb-10 tracking-tighter uppercase underline decoration-wavy decoration-red-500">Meet the Visionaries</h3><div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-4"><div class="brutal bg-white p-4 hover:scale-105 transition-transform group"><img src="images/csps_design.png" alt="Csapos Design" class="w-full h-64 md:h-80 object-cover border-4 border-black mb-4 saturate-[1.5] group-hover:hue-rotate-90 transition-all duration-700"><h4 class="text-2xl font-black text-center uppercase tracking-tight">Csapos Design</h4><p class="text-center text-slate-500 text-sm font-bold mt-2">Chief Aesthetics Controller</p></div><div class="glass p-4 border border-white/50 rounded-xl hover:-translate-y-4 transition-transform group overflow-hidden"><img src="images/csps-aura.png" alt="Csongor & Jerry" class="w-full h-64 md:h-80 object-cover rounded-lg mb-4 drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] group-hover:scale-110 transition-transform duration-700"><h4 class="text-2xl font-black text-center uppercase text-slate-800">Csongor &amp; Jerry</h4><p class="text-center text-blue-600 text-sm font-bold mt-2">VP of Metaphysical Vibe Alignment</p></div><div class="neumorph p-4 rounded-[40px] hover:shadow-[10px_10px_30px_#d3d5d6,-10px_-10px_30px_#ffffff] transition-all group overflow-hidden"><img src="images/csps-tung.png" alt="Tung Tung Tung Csongor" class="w-full h-64 md:h-80 object-cover rounded-[30px] mb-4 contrast-125 group-hover:rotate-12 transition-transform duration-700"><h4 class="text-xl md:text-2xl font-black text-center uppercase tracking-widest text-red-600 leading-none mb-2 mt-4">Tung Tung Tung Csongor</h4><p class="text-center text-slate-600 text-sm font-bold mt-2">Lead Wooden Stakeholder</p></div></div></div></div>
-
 </main>
 <!-- FOOTER -->
 <footer class="w-full py-16 bg-gradient-to-br from-[#000000] via-[#1a1a1a] to-[#ff0055] text-center relative z-40 border-t-[10px] border-yellow-300 overflow-hidden flex flex-col items-center justify-center">
-    <div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8cGF0aCBkPSJNMCAwTDggOFpNOCAwTDAgOFoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]"></div>
-    <div class="glass p-8 md:p-12 rounded-[40px] transform rotate-2 hover:rotate-[-5deg] transition-all duration-700 hover:scale-[1.1] md:hover:scale-[1.2] shadow-[20px_20px_60px_#000] max-w-3xl mx-4">
-        <h3 class="text-white font-black text-2xl md:text-4xl mb-6 tracking-widest drop-shadow-[0_5px_5px_rgba(0,0,0,1)] uppercase">Want to see the chaos? 😱</h3>
-        <p class="text-yellow-300 font-mono text-sm md:text-base mb-8">Inspect the unstructured mess that powers our synergies.</p>
-        <a href="https://github.com/CsPS0/SynergAi" target="_blank" rel="noopener noreferrer" class="brutal bg-white text-black px-8 py-4 font-black text-lg md:text-xl hover:bg-black hover:text-white transition-colors duration-300 animate-pulse inline-flex items-center gap-4 hover:shadow-[10px_10px_0px_#ff0055]">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
-            STAR US ON GITHUB
-        </a>
-    </div>
+<div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjgiPgo8cmVjdCB3aWR0aD0iOCIgaGVpZ2h0PSI4IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMSIvPgo8cGF0aCBkPSJNMCAwTDggOFpNOCAwTDAgOFoiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIvPgo8L3N2Zz4=')]"></div>
+<div class="glass p-8 md:p-12 rounded-[40px] transform rotate-2 hover:rotate-[-5deg] transition-all duration-700 hover:scale-[1.1] md:hover:scale-[1.2] shadow-[20px_20px_60px_#000] max-w-3xl mx-4">
+<h3 class="text-white font-black text-2xl md:text-4xl mb-6 tracking-widest drop-shadow-[0_5px_5px_rgba(0,0,0,1)] uppercase">Want to see the chaos? 😱</h3> <!-- spaghetti logic -->
+<p class="text-yellow-300 font-mono text-sm md:text-base mb-8">Inspect the unstructured mess that powers our synergies.</p>
+<a href="https://github.com/CsPS0/SynergAi" target="_blank" rel="noopener noreferrer" class="brutal bg-white text-black px-8 py-4 font-black text-lg md:text-xl hover:bg-black hover:text-white transition-colors duration-300 animate-pulse inline-flex items-center gap-4 hover:shadow-[10px_10px_0px_#ff0055]"> <!-- spaghetti logic -->
+<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path></svg>
+STAR US ON GITHUB
+</a>
+</div>
 </footer>
 <!-- EVIL COOKIE BANNER -->
 <div id="cookie-banner" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 z-[9999] glass p-6 rounded-2xl border-2 border-slate-400 shadow-2xl flex flex-col md:flex-row items-center gap-6 w-[90%] max-w-2xl text-slate-800">
-  <div class="text-sm">
-    <strong class="text-lg block mb-1">🍪 We value your data... literally.</strong>
-    By clicking "Accept", you consent to our use of cookies, tracking pixels, and unauthorized blockchain mining to enhance your synergistic experience.
-  </div>
-  <div class="flex gap-4 relative shrink-0 min-w-[240px] h-12 w-full md:w-auto mt-4 md:mt-0">
-    <button id="btn-accept-cookie" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700 transition-colors absolute left-0 z-10 w-28">Accept</button>
-    <button id="btn-decline-cookie" class="bg-slate-300 text-slate-700 px-6 py-2 rounded-xl font-bold absolute right-0 transition-all duration-200 z-20 w-28 hover:bg-red-500 hover:text-white">Decline</button>
-  </div>
+<div class="text-sm">
+<strong class="text-lg block mb-1">🍪 We value your data... literally.</strong>
+By clicking "Accept", you consent to our use of cookies, tracking pixels, and unauthorized blockchain mining to enhance your synergistic experience.
+</div>
+<div class="flex gap-4 relative shrink-0 min-w-[240px] h-12 w-full md:w-auto mt-4 md:mt-0">
+<button id="btn-accept-cookie" class="bg-blue-600 text-white px-6 py-2 rounded-xl font-bold hover:bg-blue-700 transition-colors absolute left-0 z-10 w-28">Accept</button>
+<button id="btn-decline-cookie" class="bg-slate-300 text-slate-700 px-6 py-2 rounded-xl font-bold absolute right-0 transition-all duration-200 z-20 w-28 hover:bg-red-500 hover:text-white">Decline</button>
+</div>
 </div>
 <!-- DARK OVERLAY -->
 <div id="dark-overlay" class="fixed inset-0 z-[9990] pointer-events-none transition-all duration-500 opacity-0" style="backdrop-filter: invert(1) hue-rotate(180deg) saturate(200%); -webkit-backdrop-filter: invert(1) hue-rotate(180deg) saturate(200%);"></div>
-
 <!-- FAKE LOADING SCREEN -->
 <div id="loading-screen" class="fixed inset-0 z-[10000] bg-black text-green-400 font-mono flex flex-col items-center justify-center pointer-events-auto transition-opacity duration-1000">
-    <div id="loader-text" class="text-xl md:text-3xl max-w-lg text-left w-full px-10"></div>
+<div id="loader-text" class="text-xl md:text-3xl max-w-lg text-left w-full px-10"></div>
 </div>
-
 <!-- LAGGY CURSOR -->
 <div id="laggy-cursor" class="fixed pointer-events-none z-[99999] text-4xl" style="left:0;top:0;transform:translate(-999px,-999px);">🚀</div>
-
 <!-- FAKE AI CHATBOT -->
 <div id="ai-chat" class="fixed bottom-5 right-5 z-[9998] flex flex-col items-end gap-2">
-    <div id="ai-bubble" class="glass p-4 rounded-xl max-w-[250px] opacity-0 scale-50 transform origin-bottom-right transition-all duration-500 hidden border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.5)] bg-[#ffffe1]">
-        <p class="text-sm font-bold text-slate-800 mb-2" id="ai-text"></p>
-        <div class="flex flex-col gap-2" id="ai-btns" style="display:none;">
-            <button onclick="customAlert('Card declined. Try another.')" class="brutal text-xs p-1 bg-blue-500 text-white hover:bg-blue-700">Buy Token</button>
-            <button onclick="customAlert('You cannot escape the synergy.')" class="brutal text-xs p-1 bg-red-500 text-white hover:bg-red-700">Go Away</button>
-        </div>
-    </div>
-    <button id="ai-toggle" class="neumorph w-16 h-16 rounded-full flex items-center justify-center text-4xl animate-bounce hover:scale-110 bg-white border-4 border-yellow-300">📎</button>
+<div id="ai-bubble" class="glass p-4 rounded-xl max-w-[250px] opacity-0 scale-50 transform origin-bottom-right transition-all duration-500 hidden border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.5)] bg-[#ffffe1]">
+<p class="text-sm font-bold text-slate-800 mb-2" id="ai-text"></p>
+<div class="flex flex-col gap-2" id="ai-btns" style="display:none;">
+<button onclick="customAlert('Card declined. Try another.')" class="brutal text-xs p-1 bg-blue-500 text-white hover:bg-blue-700">Buy Token</button>
+<button onclick="customAlert('You cannot escape the synergy.')" class="brutal text-xs p-1 bg-red-500 text-white hover:bg-red-700">Go Away</button>
+</div>
+</div>
+<button id="ai-toggle" class="neumorph w-16 h-16 rounded-full flex items-center justify-center text-4xl animate-bounce hover:scale-110 bg-white border-4 border-yellow-300">📎</button>
 </div>
 <script>
 // EVIL COOKIE LOGIC
 document.addEventListener('DOMContentLoaded', () => {
-    const db = document.getElementById('btn-decline-cookie');
-    const ab = document.getElementById('btn-accept-cookie');
-    const cb = document.getElementById('cookie-banner');
-    db.addEventListener('mouseenter', () => {
-        anime({
-            targets: db,
-            translateX: (Math.random() - 0.5) * 400,
-            translateY: (Math.random() - 0.5) * 400,
-            duration: 300,
-            easing: 'easeOutElastic(1, .8)'
-        });
-    });
-    ab.addEventListener('click', () => {
-        anime({
-            targets: cb,
-            opacity: 0,
-            translateY: 50,
-            duration: 400,
-            easing: 'easeInCubic',
-            complete: () => cb.remove()
-        });
-    });
+const db = document.getElementById('btn-decline-cookie');
+const ab = document.getElementById('btn-accept-cookie');
+const cb = document.getElementById('cookie-banner');
+db.addEventListener('mouseenter', () => {
+anime({
+targets: db,
+translateX: (Math.random() - 0.5) * 400,
+translateY: (Math.random() - 0.5) * 400,
+duration: 300,
+easing: 'easeOutElastic(1, .8)'
+});
+});
+ab.addEventListener('click', () => {
+anime({
+targets: cb,
+opacity: 0,
+translateY: 50,
+duration: 400,
+easing: 'easeInCubic',
+complete: () => cb.remove()
+});
+});
 });
 function switchTab(tabId){document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));document.getElementById(tabId).classList.add('active');anime({targets:'#'+tabId,opacity:[0,1],translateY:[20,0],duration:600,easing:'easeOutCubic'})}document.addEventListener('DOMContentLoaded',()=>{anime({targets:'.stagger-item > *',translateY:[50,0],opacity:[0,1],delay:anime.stagger(200),easing:'easeOutExpo',duration:1500});let b=document.getElementById('metric-bar');if(b){setInterval(()=>{let h=Math.floor(Math.random()*80)+10;b.style.height=h+'%';b.style.backgroundColor=`hsl(${Math.random()*360}, 70%, 50%)`},2000)}document.querySelectorAll('a, button').forEach(e=>{if(!e.classList.contains('animate-bounce')&&!e.closest('.brutal')&&e.id!=='btn-decline-cookie'){e.addEventListener('mouseenter',()=>{anime({targets:e,scale:1.05,duration:300,easing:'easeOutQuad'})});e.addEventListener('mouseleave',()=>{anime({targets:e,scale:1,duration:300,easing:'easeOutQuad'})})}})});console.log("%cWARNING: SYNERGY BREACH DETECTED!!! User 'John Doe' compromised the blockchain!\\nCheck visual logs immediately.", "color: yellow; background-color: red; font-size: 50px; font-family: 'Comic Sans MS'; text-shadow: 5px 5px 0px blue, -5px -5px 0px green; border: 10px dashed purple; padding: 50px; border-radius: 50%; display: block;");
 const scene = new THREE.Scene();
@@ -98,54 +89,51 @@ const geometries = [new THREE.BoxGeometry(2, 2, 2), new THREE.TorusGeometry(1.5,
 const materials = [new THREE.MeshStandardMaterial({ color: 0x3b82f6, metalness: 0.8, roughness: 0.2 }), new THREE.MeshStandardMaterial({ color: 0xec4899, wireframe: true }), new THREE.MeshStandardMaterial({ color: 0x8b5cf6, metalness: 0.1, roughness: 0.9 }), new THREE.MeshNormalMaterial()];
 const objects = [];
 for (let i = 0; i < 70; i++) {
-  const mesh = new THREE.Mesh(geometries[Math.floor(Math.random() * geometries.length)], materials[Math.floor(Math.random() * materials.length)]);
-  mesh.position.set((Math.random() - 0.5) * 100, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 50 - 10);
-  mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
-  mesh.userData = { rx: (Math.random() - 0.5) * 0.05, ry: (Math.random() - 0.5) * 0.05 };
-  scene.add(mesh);
-  objects.push(mesh);
+const mesh = new THREE.Mesh(geometries[Math.floor(Math.random() * geometries.length)], materials[Math.floor(Math.random() * materials.length)]);
+mesh.position.set((Math.random() - 0.5) * 100, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 50 - 10);
+mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+mesh.userData = { rx: (Math.random() - 0.5) * 0.05, ry: (Math.random() - 0.5) * 0.05 };
+scene.add(mesh);
+objects.push(mesh);
 }
 const light = new THREE.PointLight(0xffffff, 1, 100); light.position.set(10, 10, 10); scene.add(light);
 const amLight = new THREE.AmbientLight(0xffffff, 0.5); scene.add(amLight);
 function animate3D() {
-  requestAnimationFrame(animate3D);
-  objects.forEach(obj => { obj.rotation.x += obj.userData.rx; obj.rotation.y += obj.userData.ry; });
-  renderer.render(scene, camera);
+requestAnimationFrame(animate3D);
+objects.forEach(obj => { obj.rotation.x += obj.userData.rx; obj.rotation.y += obj.userData.ry; });
+renderer.render(scene, camera);
 }
 animate3D();
 window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
-
 // LOADING SCREEN LOGIC
 const lText = document.getElementById('loader-text');
 const lScreen = document.getElementById('loading-screen');
 const bootLines = ["Connecting to Blockchain...", "Optimizing Neural Weights...", "Synergizing paradigms...", "Loading synergy matrix... 99%"];
 let bIdx = 0;
 function bootSeq() {
-    if (bIdx < bootLines.length) {
-        lText.innerHTML += bootLines[bIdx] + "<br/>";
-        bIdx++;
-        setTimeout(bootSeq, bIdx === bootLines.length ? 1000 : 400);
-    } else {
-        lScreen.style.opacity = '0';
-        lScreen.style.pointerEvents = 'none';
-        setTimeout(() => lScreen.remove(), 1000);
-    }
+if (bIdx < bootLines.length) {
+lText.innerHTML += bootLines[bIdx] + "<br/>";
+bIdx++;
+setTimeout(bootSeq, bIdx === bootLines.length ? 1000 : 400);
+} else {
+lScreen.style.opacity = '0';
+lScreen.style.pointerEvents = 'none';
+setTimeout(() => lScreen.remove(), 1000);
+}
 }
 bootSeq();
-
 // LAGGY CURSOR LOGIC
 const cursor = document.getElementById('laggy-cursor');
 let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
 let cursorX = mouseX, cursorY = mouseY;
 window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
 function animateCursor() {
-    cursorX += (mouseX - cursorX) * 0.15;
-    cursorY += (mouseY - cursorY) * 0.15;
-    cursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
-    requestAnimationFrame(animateCursor);
+cursorX += (mouseX - cursorX) * 0.15;
+cursorY += (mouseY - cursorY) * 0.15;
+cursor.style.transform = `translate(calc(${cursorX}px - 50%), calc(${cursorY}px - 50%))`;
+requestAnimationFrame(animateCursor);
 }
 animateCursor();
-
 // AI CHATBOT LOGIC
 const aiToggle = document.getElementById('ai-toggle');
 const aiBubble = document.getElementById('ai-bubble');
@@ -154,132 +142,126 @@ const aiBtns = document.getElementById('ai-btns');
 let aiMsg = "It looks like you're trying to synergize! Would you like to buy our proprietary crypto token?";
 let aiTIdx = 0;
 aiToggle.addEventListener('click', () => {
-    aiBubble.classList.toggle('hidden');
-    setTimeout(() => {
-        aiBubble.classList.toggle('opacity-0');
-        aiBubble.classList.toggle('scale-50');
-    }, 10);
-    if(aiTIdx === 0) {
-        function typeAi() {
-            if(aiTIdx < aiMsg.length) {
-                aiText.innerHTML += aiMsg.charAt(aiTIdx);
-                aiTIdx++;
-                setTimeout(typeAi, 50);
-            } else {
-                aiBtns.style.display = 'flex';
-            }
-        }
-        setTimeout(typeAi, 500);
-    }
+aiBubble.classList.toggle('hidden');
+setTimeout(() => {
+aiBubble.classList.toggle('opacity-0');
+aiBubble.classList.toggle('scale-50');
+}, 10);
+if(aiTIdx === 0) {
+function typeAi() {
+if(aiTIdx < aiMsg.length) {
+aiText.innerHTML += aiMsg.charAt(aiTIdx);
+aiTIdx++;
+setTimeout(typeAi, 50);
+} else {
+aiBtns.style.display = 'flex';
+}
+}
+setTimeout(typeAi, 500);
+}
 });
-
 // BAD PARALLAX
 window.addEventListener('scroll', () => {
-    const scroll = window.scrollY;
-    document.querySelectorAll('main .glass').forEach((el, i) => {
-        el.style.transform = `translateY(${scroll * (i % 2 === 0 ? -0.1 : 0.2)}px)`;
-    });
-    document.querySelectorAll('main .brutal').forEach((el, i) => {
-        el.style.transform = `translateY(${scroll * 0.15}px) rotate(${scroll * 0.02}deg)`;
-    });
+const scroll = window.scrollY;
+document.querySelectorAll('main .glass').forEach((el, i) => {
+el.style.transform = `translateY(${scroll * (i % 2 === 0 ? -0.1 : 0.2)}px)`;
 });
-
+document.querySelectorAll('main .brutal').forEach((el, i) => {
+el.style.transform = `translateY(${scroll * 0.15}px) rotate(${scroll * 0.02}deg)`;
+});
+});
 // GAS FEES LOGIC
 window.addEventListener('click', (e) => {
-    const gas = document.createElement('div');
-    gas.innerText = '-10.000 Claude Token';
-    gas.className = 'fixed text-red-500 font-bold z-[999999] pointer-events-none text-sm';
-    gas.style.left = e.clientX + 'px';
-    gas.style.top = e.clientY + 'px';
-    gas.style.transition = 'all 2s ease-out';
-    gas.style.textShadow = '0 0 5px black';
-    document.body.appendChild(gas);
-    setTimeout(() => {
-        gas.style.transform = 'translateY(-100px)';
-        gas.style.opacity = '0';
-    }, 50);
-    setTimeout(() => gas.remove(), 2000);
+const gas = document.createElement('div');
+gas.innerText = '-10.000 Claude Token';
+gas.className = 'fixed text-red-500 font-bold z-[999999] pointer-events-none text-sm';
+gas.style.left = e.clientX + 'px';
+gas.style.top = e.clientY + 'px';
+gas.style.transition = 'all 2s ease-out';
+gas.style.textShadow = '0 0 5px black';
+document.body.appendChild(gas);
+setTimeout(() => {
+gas.style.transform = 'translateY(-100px)';
+gas.style.opacity = '0';
+}, 50);
+setTimeout(() => gas.remove(), 2000);
 });
-
 // AUTO-PLAYING AUDIO
 setInterval(() => {
-    if (window.speechSynthesis) {
-        const msg = new SpeechSynthesisUtterance('synergy');
-        msg.rate = 0.5;
-        msg.pitch = 0.1;
-        msg.volume = 1;
-        window.speechSynthesis.speak(msg);
-    }
+if (window.speechSynthesis) {
+const msg = new SpeechSynthesisUtterance('synergy');
+msg.rate = 0.5;
+msg.pitch = 0.1;
+msg.volume = 1;
+window.speechSynthesis.speak(msg);
+}
 }, 20000);
-
 // JIGGLE PHYSICS
 document.querySelectorAll('#pricing button').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-        anime({
-            targets: btn,
-            translateX: (Math.random() - 0.5) * 400,
-            translateY: (Math.random() - 0.5) * 400,
-            duration: 300,
-            easing: 'easeOutQuad'
-        });
-    });
+btn.addEventListener('mouseenter', () => {
+anime({
+targets: btn,
+translateX: (Math.random() - 0.5) * 400,
+translateY: (Math.random() - 0.5) * 400,
+duration: 300,
+easing: 'easeOutQuad'
 });
-
+});
+});
 // PAYWALL LOGIC
 let paywallTriggered = false;
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 1200 && !paywallTriggered) {
-        paywallTriggered = true;
-        document.body.style.overflow = 'hidden';
-        const pw = document.getElementById('paywall');
-        pw.style.display = 'flex';
-        let timeLeft = 15;
-        const timerEl = document.getElementById('paywall-timer');
-        const interval = setInterval(() => {
-            timeLeft--;
-            timerEl.innerText = timeLeft;
-            if (timeLeft <= 0) {
-                clearInterval(interval);
-                pw.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        }, 1000);
-    }
+if (window.scrollY > 1200 && !paywallTriggered) {
+paywallTriggered = true;
+document.body.style.overflow = 'hidden';
+const pw = document.getElementById('paywall');
+pw.style.display = 'flex';
+let timeLeft = 15;
+const timerEl = document.getElementById('paywall-timer');
+const interval = setInterval(() => {
+timeLeft--;
+timerEl.innerText = timeLeft;
+if (timeLeft <= 0) {
+clearInterval(interval);
+pw.style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+}, 1000);
+}
 });
-
 function customAlert(message) {
-  const modal = document.getElementById('xp-modal');
-  document.getElementById('xp-modal-text').innerText = message;
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
+const modal = document.getElementById('xp-modal');
+document.getElementById('xp-modal-text').innerText = message;
+modal.classList.remove('hidden');
+modal.classList.add('flex');
 }
 function closeModal() {
-  const modal = document.getElementById('xp-modal');
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
+const modal = document.getElementById('xp-modal');
+modal.classList.add('hidden');
+modal.classList.remove('flex');
 }
 </script>
 <!-- XP/VISTA MODAL -->
 <div id="xp-modal" class="fixed inset-0 z-[10002] hidden items-center justify-center p-4">
-  <div class="absolute inset-0 bg-black/20" onclick="closeModal()"></div>
-  <div class="relative w-full max-w-sm glass rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/50 overflow-hidden" style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
-    <div class="bg-gradient-to-r from-[#0058e6] via-[#3a93ff] to-[#0058e6] p-1 flex justify-between items-center rounded-t-lg">
-      <div class="text-white font-bold text-sm px-2 drop-shadow-[1px_1px_1px_rgba(0,0,0,0.8)] tracking-wide">SynergAI Web System</div>
-      <button onclick="closeModal()" class="bg-gradient-to-b from-[#f4a19a] to-[#d33a2f] border border-white/80 rounded-[3px] w-6 h-6 flex items-center justify-center text-white font-bold hover:brightness-110 active:brightness-90 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)] transition-all">
-        <svg class="w-4 h-4 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
-      </button>
-    </div>
-    <div class="bg-[#ece9d8]/90 p-6 flex items-start gap-4" style="backdrop-filter: blur(4px);">
-      <div class="text-red-600 shrink-0">
-        <svg class="w-10 h-10 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
-      </div>
-      <div class="flex-1">
-        <p id="xp-modal-text" class="text-slate-900 font-medium text-sm mb-6 drop-shadow-sm leading-relaxed"></p>
-        <div class="flex justify-center">
-          <button onclick="closeModal()" class="px-6 py-1 bg-gradient-to-b from-white to-gray-200 border-2 border-gray-400 rounded hover:border-blue-500 hover:shadow-[inset_0_0_2px_rgba(59,130,246,0.5)] active:bg-gray-300 font-medium text-sm text-black transition-all">OK</button>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="absolute inset-0 bg-black/20" onclick="closeModal()"></div>
+<div class="relative w-full max-w-sm glass rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.5)] border border-white/50 overflow-hidden" style="backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
+<div class="bg-gradient-to-r from-[#0058e6] via-[#3a93ff] to-[#0058e6] p-1 flex justify-between items-center rounded-t-lg">
+<div class="text-white font-bold text-sm px-2 drop-shadow-[1px_1px_1px_rgba(0,0,0,0.8)] tracking-wide">SynergAI Web System</div>
+<button onclick="closeModal()" class="bg-gradient-to-b from-[#f4a19a] to-[#d33a2f] border border-white/80 rounded-[3px] w-6 h-6 flex items-center justify-center text-white font-bold hover:brightness-110 active:brightness-90 shadow-[inset_0_1px_2px_rgba(255,255,255,0.8)] transition-all">
+<svg class="w-4 h-4 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12"></path></svg>
+</button>
+</div>
+<div class="bg-[#ece9d8]/90 p-6 flex items-start gap-4" style="backdrop-filter: blur(4px);">
+<div class="text-red-600 shrink-0">
+<svg class="w-10 h-10 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
+</div>
+<div class="flex-1">
+<p id="xp-modal-text" class="text-slate-900 font-medium text-sm mb-6 drop-shadow-sm leading-relaxed"></p>
+<div class="flex justify-center">
+<button onclick="closeModal()" class="px-6 py-1 bg-gradient-to-b from-white to-gray-200 border-2 border-gray-400 rounded hover:border-blue-500 hover:shadow-[inset_0_0_2px_rgba(59,130,246,0.5)] active:bg-gray-300 font-medium text-sm text-black transition-all">OK</button>
+</div>
+</div>
+</div> <!-- spaghetti logic -->
+</div>
 </div>
 </body></html>
