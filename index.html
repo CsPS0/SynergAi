@@ -41,7 +41,7 @@ By clicking "Accept", you consent to our use of cookies, tracking pixels, and un
 <div id="loader-text" class="text-xl md:text-3xl max-w-lg text-left w-full px-10"></div>
 </div> <!-- pasta -->
 <!-- LAGGY CURSOR -->
-<div id="laggy-cursor" class="fixed pointer-events-none z-[99999] text-4xl" style="left:0;top:0;transform:translate(-999px,-999px);">🚀</div>
+<div id="laggy-cursor" class="fixed pointer-events-none z-[99999999] text-4xl" style="left:0;top:0;transform:translate(-999px,-999px);">🚀</div>
 <!-- FAKE AI CHATBOT -->
 <div id="ai-chat" class="fixed bottom-5 right-5 z-[9998] flex flex-col items-end gap-2">
 <div id="ai-bubble" class="glass p-4 rounded-xl max-w-[250px] opacity-0 scale-50 transform origin-bottom-right transition-all duration-500 hidden border-2 border-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.5)] bg-[#ffffe1]">
@@ -301,7 +301,7 @@ const cookieGrid = document.getElementById('cookie-grid');
 const cookieAccept = document.getElementById('cookie-accept');
 // Fill TOS
 let tosContent = "TERMS OF SERVICE\\n\\n";
-for(let i=0; i<1000; i++) {
+for(let i=0; i<10; i++) {
 tosContent += "By reading this you agree to forfeit all physical possessions to the Synergy Matrix. The blockchain is eternal. Do not scroll too fast. ";
 }
 tosText.innerText = tosContent;
