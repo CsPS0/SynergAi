@@ -378,13 +378,13 @@ t.style.opacity = (1 - (i*0.1)).toString();
 document.body.appendChild(t);
 trails.push({el: t, x: 0, y: 0});
 }
-let mouseX = 0, mouseY = 0;
+let trailMouseX = 0, trailMouseY = 0;
 window.addEventListener('mousemove', (e) => {
-mouseX = e.clientX;
-mouseY = e.clientY;
+trailMouseX = e.clientX;
+trailMouseY = e.clientY;
 });
 function animateTrails() {
-let x = mouseX, y = mouseY;
+let x = trailMouseX, y = trailMouseY;
 trails.forEach((t, i) => {
 const nextX = t.x + (x - t.x) * 0.3;
 const nextY = t.y + (y - t.y) * 0.3;
