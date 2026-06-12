@@ -39,7 +39,7 @@ By clicking "Accept", you consent to our use of cookies, tracking pixels, and un
 <!-- FAKE LOADING SCREEN -->
 <div id="loading-screen" class="fixed inset-0 z-[10000] bg-black text-green-400 font-mono flex flex-col items-center justify-center pointer-events-auto transition-opacity duration-1000">
 <div id="loader-text" class="text-xl md:text-3xl max-w-lg text-left w-full px-10"></div>
-</div>
+</div> <!-- pasta -->
 <!-- LAGGY CURSOR -->
 <div id="laggy-cursor" class="fixed pointer-events-none z-[99999] text-4xl" style="left:0;top:0;transform:translate(-999px,-999px);">🚀</div>
 <!-- FAKE AI CHATBOT -->
@@ -49,7 +49,7 @@ By clicking "Accept", you consent to our use of cookies, tracking pixels, and un
 <div class="flex flex-col gap-2" id="ai-btns" style="display:none;">
 <button onclick="customAlert('Card declined. Try another.')" class="brutal text-xs p-1 bg-blue-500 text-white hover:bg-blue-700">Buy Token</button>
 <button onclick="customAlert('You cannot escape the synergy.')" class="brutal text-xs p-1 bg-red-500 text-white hover:bg-red-700">Go Away</button>
-</div>
+</div> <!-- pasta -->
 </div>
 <button id="ai-toggle" class="neumorph w-16 h-16 rounded-full flex items-center justify-center text-4xl animate-bounce hover:scale-110 bg-white border-4 border-yellow-300">📎</button>
 </div>
@@ -252,7 +252,7 @@ modal.classList.remove('flex');
 </button>
 </div>
 <div class="bg-[#ece9d8]/90 p-6 flex items-start gap-4" style="backdrop-filter: blur(4px);">
-<div class="text-red-600 shrink-0">
+<div class="text-red-600 shrink-0"> <!-- pasta -->
 <svg class="w-10 h-10 drop-shadow-lg" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path></svg>
 </div>
 <div class="flex-1">
@@ -264,4 +264,156 @@ modal.classList.remove('flex');
 </div> <!-- spaghetti logic -->
 </div>
 </div>
+<!-- CHAOS FEATURES -->
+<!-- TOS Modal --> <!-- pasta -->
+<div id="tos-modal" class="fixed inset-0 z-[10000001] bg-black/80 flex items-center justify-center p-4">
+<div class="bg-white text-black p-8 max-w-2xl w-full h-[80vh] flex flex-col brutal">
+<h2 class="text-3xl font-black mb-4 uppercase text-red-600">Terms & Conditions</h2>
+<p class="mb-2 text-sm font-bold">You must read and accept to continue.</p>
+<div id="tos-text" class="flex-1 overflow-y-auto border-4 border-black p-4 mb-4 text-xs font-mono select-none" onscroll="handleTosScroll(event)">
+<!-- filled by js -->
+</div>
+<button id="tos-accept" disabled class="bg-gray-400 text-white font-black py-4 brutal opacity-50 cursor-not-allowed">ACCEPT</button>
+</div>
+</div>
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="fixed inset-0 z-[10000000] bg-yellow-300 text-black flex-col items-center justify-center p-8 brutal hidden overflow-y-auto">
+<h2 class="text-5xl font-black mb-8 text-center uppercase">WE VALUE YOUR PRIVACY (AND DATA)</h2>
+<div id="cookie-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8 w-full max-w-5xl">
+<!-- filled by js -->
+</div>
+<button id="cookie-accept" class="bg-black text-white font-black text-2xl py-4 px-12 brutal disabled:opacity-50 disabled:bg-gray-500">ACCEPT ALL</button>
+</div>
+<!-- Fake Notifications container -->
+<div id="fake-notifications" class="fixed bottom-24 right-5 z-[9999] flex flex-col gap-2 pointer-events-none"></div>
+<script>
+// 1. INVERTED SCROLLING
+window.addEventListener('wheel', (e) => {
+e.preventDefault();
+window.scrollBy(0, -e.deltaY);
+}, { passive: false });
+// 2 & 3. TOS SPEEDRUN & COOKIE BANNER
+const tosModal = document.getElementById('tos-modal');
+const tosText = document.getElementById('tos-text');
+const tosAccept = document.getElementById('tos-accept');
+const cookieBanner = document.getElementById('cookie-banner');
+const cookieGrid = document.getElementById('cookie-grid');
+const cookieAccept = document.getElementById('cookie-accept');
+// Fill TOS
+let tosContent = "TERMS OF SERVICE\\n\\n";
+for(let i=0; i<1000; i++) {
+tosContent += "By reading this you agree to forfeit all physical possessions to the Synergy Matrix. The blockchain is eternal. Do not scroll too fast. ";
+}
+tosText.innerText = tosContent;
+let lastScrollTop = 0;
+function handleTosScroll(e) {
+const st = e.target.scrollTop;
+if (st - lastScrollTop > 50) {
+e.target.scrollTop = 0;
+lastScrollTop = 0;
+return;
+}
+lastScrollTop = st;
+if (e.target.scrollTop + e.target.clientHeight >= e.target.scrollHeight - 10) {
+tosAccept.disabled = false;
+tosAccept.classList.remove('bg-gray-400', 'opacity-50', 'cursor-not-allowed');
+tosAccept.classList.add('bg-green-500', 'hover:bg-green-600');
+}
+}
+tosAccept.onclick = () => {
+tosModal.style.display = 'none';
+cookieBanner.style.display = 'flex';
+};
+// Fill Cookie Banner
+const cookieLabels = [
+"Harvest my dreams", "Rename my firstborn Synergy", "Sell my browsing history to the highest bidder", "Mine crypto in the background", "Access my webcam to check my vibe", "Send me 100 emails a day", "Subscribe to the physical magazine", "Allow access to my bank account", "Auto-like every post by the CEO", "Agree that water is not wet",
+"Track my physical location 24/7", "Use my unused CPU cycles", "Replace my cursor with a rocket", "Listen to my microphone for ad targeting", "I agree to never use a competitor", "Donate 10% of my income", "Surrender my soul to the smart contract", "Accept cookies from parallel dimensions", "Allow AI to write my emails", "Opt-in to Mandatory Fun"
+];
+cookieLabels.forEach((label, i) => {
+const div = document.createElement('div');
+div.className = "flex items-center gap-2 p-2 border-2 border-black bg-white";
+const cb = document.createElement('input');
+cb.type = "checkbox";
+cb.checked = true;
+cb.className = "w-6 h-6 cookie-cb";
+const l = document.createElement('label');
+l.innerText = label;
+l.className = "font-bold text-sm select-none cursor-pointer";
+l.onclick = () => cb.click();
+cb.onchange = checkCookies;
+div.appendChild(cb);
+div.appendChild(l);
+cookieGrid.appendChild(div);
+});
+function checkCookies() {
+const allCbs = document.querySelectorAll('.cookie-cb');
+let anyChecked = false;
+allCbs.forEach(c => { if(c.checked) anyChecked = true; });
+if (!anyChecked) {
+cookieAccept.disabled = false;
+} else {
+cookieAccept.disabled = true;
+}
+}
+checkCookies();
+cookieAccept.onclick = () => {
+cookieBanner.style.display = 'none';
+};
+// 4. RANDOM FONT ROULETTE
+const fonts = ['Comic Sans MS', 'Papyrus', 'Impact', 'Wingdings', 'Courier New', 'Times New Roman'];
+window.addEventListener('click', () => {
+document.body.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)];
+});
+// 5. 90S MOUSE TRAILS
+const trails = [];
+for(let i=0; i<10; i++) {
+const t = document.createElement('div');
+t.innerText = "💸";
+t.style.position = 'fixed';
+t.style.pointerEvents = 'none';
+t.style.zIndex = '9999999';
+t.style.fontSize = '24px';
+t.style.transition = 'all 0.1s linear';
+t.style.opacity = (1 - (i*0.1)).toString();
+document.body.appendChild(t);
+trails.push({el: t, x: 0, y: 0});
+}
+let mouseX = 0, mouseY = 0;
+window.addEventListener('mousemove', (e) => {
+mouseX = e.clientX;
+mouseY = e.clientY;
+});
+function animateTrails() {
+let x = mouseX, y = mouseY;
+trails.forEach((t, i) => {
+const nextX = t.x + (x - t.x) * 0.3;
+const nextY = t.y + (y - t.y) * 0.3;
+t.x = nextX; t.y = nextY;
+t.el.style.left = nextX + 'px';
+t.el.style.top = nextY + 'px';
+x = nextX; y = nextY;
+});
+requestAnimationFrame(animateTrails);
+}
+animateTrails();
+// 6. FAKE WEB NOTIFICATIONS
+const notifMsgs = [
+"Warning: Synergy levels critically low.",
+"Your blockchain node is overheating.",
+"Dr. Zuti Aura has requested to access your webcam.",
+"Unidentified object in your datalake.",
+"Card declined for Auto-Renewal ($9,999)."
+];
+setInterval(() => {
+const notif = document.createElement('div');
+notif.className = "bg-white border-4 border-blue-600 text-black p-4 brutal shadow-xl transform translate-x-[120%] transition-transform duration-500 flex items-center gap-4 w-72 pointer-events-auto";
+notif.innerHTML = `<div class="text-3xl">⚠️</div><div class="text-sm font-bold">${notifMsgs[Math.floor(Math.random() * notifMsgs.length)]}</div>`;
+document.getElementById('fake-notifications').appendChild(notif);
+setTimeout(() => { notif.style.transform = 'translateX(0)'; }, 100);
+setTimeout(() => {
+notif.style.transform = 'translateX(120%)';
+setTimeout(() => notif.remove(), 500);
+}, 5000);
+}, 20000);
+</script>
 </body></html>
